@@ -1,7 +1,7 @@
 # AI-Driven Development Process - Complete Setup Guide
 
 > **Setup Instructions for Claude Code:**
-> 1. Download this markdown file
+> 1. Ensure the following markdown files are present: ai_prompts.md, contracts_and_validations.md, minimal_output_templates.md
 > 2. Start Claude Code in your desired project directory
 > 3. Run: "Read this markdown file and set up the complete AI development process structure. Create all directories, generate all contract files, prompt templates, validation checklists, CLI scripts, and verification tools exactly as specified."
 > 4. Run the generated verification script to ensure complete setup
@@ -497,7 +497,7 @@ metadata:
   stakeholders: []
 ```
 
-#### Status-Aware Execution
+#### Status-Aware Execution   
 - AI always begins by loading and analyzing `state.yaml`
 - Determines current phase and specific step within that phase
 - Identifies the exact next action to take
