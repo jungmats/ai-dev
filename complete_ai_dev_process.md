@@ -306,11 +306,196 @@ A structured, phase-based development process that uses AI (Claude) as the prima
 The process uses a comprehensive status tracking system that enables AI to understand the current project state and determine next actions:
 
 #### State Tracking (`state.yaml`)
-- **Project Metadata**: Name, ID, creation date, last update
-- **Current Status**: Phase, step, next action, progress percentage
-- **Phase Details**: Status, dependencies, deliverables, completion criteria
-- **Contract Information**: Loaded contracts, compliance status
-- **Session Context**: Working directory, last AI session, current work description
+```yaml
+project:
+  name: "[Project Name]"
+  id: "proj-[YYYY-MM-DD]-[slug]"
+  created: "[ISO timestamp]"
+  last_updated: "[ISO timestamp]"
+  description: "[Brief project description]"
+  
+status:
+  current_phase: "[idea|research|specification|poc|development|deployment]"
+  current_step: "[current step within phase]"
+  next_action: "[specific next action to take]"
+  progress_percentage: 0
+  
+phases:
+  idea:
+    status: "[pending|in_progress|completed]"
+    started: "[ISO timestamp]"
+    completed: "[ISO timestamp]"
+    validation_passed: false
+    deliverables:
+      - "docs/application-idea.md"
+      - "docs/phase-reports/idea-phase-report.md"
+    next_phase_approved: false
+    
+  research:
+    status: "[pending|in_progress|completed]"
+    started: "[ISO timestamp]"
+    completed: "[ISO timestamp]"
+    current_step: "[track-1-frameworks|track-2-best-practices|track-3-competition|consolidate-findings|human-validation]"
+    completed_steps: []
+    remaining_steps: []
+    deliverables:
+      completed: []
+      pending:
+        - "docs/research/research-track-1-frameworks.md"
+        - "docs/research/research-track-2-best-practices.md"
+        - "docs/research/research-track-3-competition.md"
+        - "docs/research-findings.md"
+        - "docs/research/tech-stack-recommendation.md"
+        - "docs/phase-reports/research-phase-report.md"
+    validation_passed: false
+    
+  specification:
+    status: "[pending|in_progress|completed]"
+    dependencies: ["research.completed"]
+    started: "[ISO timestamp]"
+    completed: "[ISO timestamp]"
+    current_step: "[functional-requirements|non-functional-requirements|use-cases|user-stories|api-design|database-schema|architecture|yaml-generation|human-validation]"
+    completed_steps: []
+    remaining_steps: []
+    deliverables:
+      completed: []
+      pending:
+        - "docs/specification/functional-requirements.md"
+        - "docs/specification/non-functional-requirements.md"
+        - "docs/specification/use-cases.md"
+        - "docs/specification/user-stories.md"
+        - "docs/specification/api-design.md"
+        - "docs/specification/database-schema.md"
+        - "docs/specification/architecture-overview.md"
+        - "specs/project-specification.yaml"
+        - "docs/phase-reports/specification-phase-report.md"
+    validation_passed: false
+    
+  poc:
+    status: "[pending|in_progress|completed]"
+    dependencies: ["specification.completed"]
+    started: "[ISO timestamp]"
+    completed: "[ISO timestamp]"
+    current_step: "[risk-assessment|poc-implementation|results-analysis|architecture-update|human-validation]"
+    identified_risks: []
+    # Example:
+    # - id: "risk-1"
+    #   category: "performance"
+    #   description: "Database performance with expected load"
+    #   priority: "high"
+    #   status: "completed"
+    #   poc_result: "passed"
+    #   poc_files: 
+    #     - "poc/database-performance/test-queries.sql"
+    #     - "poc/database-performance/performance-results.md"
+    deliverables:
+      completed: []
+      pending:
+        - "docs/poc/risk-assessment.md"
+        - "docs/poc/poc-results-summary.md"
+        - "docs/specification/architecture-overview-updated.md"
+        - "docs/phase-reports/poc-phase-report.md"
+    validation_passed: false
+    
+  development:
+    status: "[pending|in_progress|completed]"
+    dependencies: ["poc.completed"]
+    started: "[ISO timestamp]"
+    completed: "[ISO timestamp]"
+    current_feature: "[feature-name]"
+    current_unit: "[unit-name]"
+    current_step: "[design|unit-breakdown|unit-test-implementation|code-implementation|integration-tests|feature-validation]"
+    features: {}
+    # Example:
+    # user-authentication:
+    #   priority: 1
+    #   status: "in_progress"
+    #   design_approved: true
+    #   units:
+    #     login-form:
+    #       status: "completed"
+    #       tests_passing: true
+    #       files:
+    #         - "src/features/auth/login-form.js"
+    #         - "tests/unit/auth/login-form.test.js"
+    #     password-validation:
+    #       status: "in_progress"
+    #       current_step: "unit_test_implementation"
+    #       files:
+    #         - "tests/unit/auth/password-validation.test.js"
+    test_coverage: 0
+    deliverables:
+      completed: []
+      pending:
+        - "src/"
+        - "tests/"
+        - "docs/api/api-documentation.md"
+        - "README.md"
+        - "CHANGELOG.md"
+        - "docs/phase-reports/development-phase-report.md"
+    validation_passed: false
+    
+  deployment:
+    status: "[pending|in_progress|completed]"
+    dependencies: ["development.completed"]
+    started: "[ISO timestamp]"
+    completed: "[ISO timestamp]"
+    current_step: "[staging-setup|staging-validation|production-setup|production-deployment|post-deployment-validation|documentation|handover]"
+    staging_deployed: false
+    production_deployed: false
+    monitoring_active: false
+    deliverables:
+      completed: []
+      pending:
+        - "infrastructure/"
+        - "scripts/"
+        - "docs/deployment/"
+        - "docs/handover/"
+        - "docs/project-completion-report.md"
+        - "docs/phase-reports/deployment-phase-report.md"
+    validation_passed: false
+
+contracts:
+  core_version: "1.0"
+  loaded_contracts:
+    - "core-contract.md"
+    # Phase-specific contract loaded based on current_phase
+  last_compliance_check: "[ISO timestamp]"
+  compliance_status: "[passed|failed|warning]"
+  compliance_issues: []
+
+context:
+  working_directory: "[project directory path]"
+  last_ai_session: "[ISO timestamp]"
+  session_context: "[description of current work]"
+  working_files: []
+  environment_state:
+    dependencies_installed: false
+    database_setup: false
+    server_running: false
+    tests_passing: false
+  
+next_actions:
+  immediate: "[immediate next action]"
+  after_current: "[action after current completes]"
+  phase_goal: "[overall goal for current phase]"
+
+error_state:
+  has_error: false
+  error_phase: "[phase where error occurred]"
+  error_step: "[step where error occurred]"
+  error_message: "[error description]"
+  error_timestamp: "[ISO timestamp]"
+  recovery_actions: []
+  auto_recovery_attempted: false
+
+metadata:
+  process_version: "1.0"
+  last_backup: "[ISO timestamp]"
+  git_commit: "[last git commit hash]"
+  team_members: []
+  stakeholders: []
+```
 
 #### Status-Aware Execution
 - AI always begins by loading and analyzing `state.yaml`
@@ -325,169 +510,57 @@ The process uses a comprehensive status tracking system that enables AI to under
 - Clear audit trail of all decisions and changes
 - Rollback capability to previous states
 
+#### Error Recovery
+- Comprehensive error state tracking
+- Automatic recovery suggestions
+- Manual intervention points
+- Rollback to last known good state
+
 ---
 
 ## 2. Folder Structure
 
 ```
 project-root/
-├── .claude/                                    # AI Development Process Configuration
-│   ├── contracts/                             # Quality and standards contracts
-│   │   ├── core-contract.md                   # Universal development standards
-│   │   ├── phase-idea-contract.md             # Application idea phase standards
-│   │   ├── phase-research-contract.md         # Research phase standards
-│   │   ├── phase-specification-contract.md    # Specification phase standards
-│   │   ├── phase-poc-contract.md              # Proof of concept phase standards
-│   │   ├── phase-development-contract.md      # Development phase standards
-│   │   └── phase-deployment-contract.md       # Deployment phase standards
-│   ├── validations/                           # Quality assurance checklists
-│   │   ├── phase-idea-validation.md           # Idea phase validation checklist
-│   │   ├── phase-research-validation.md       # Research phase validation checklist
-│   │   ├── phase-specification-validation.md  # Specification phase validation checklist
-│   │   ├── phase-poc-validation.md            # PoC phase validation checklist
-│   │   ├── phase-development-validation.md    # Development phase validation checklist
-│   │   └── phase-deployment-validation.md     # Deployment phase validation checklist
-│   ├── prompts/                               # AI agent prompt templates
-│   │   ├── session-init.md                    # Session initialization prompt
-│   │   ├── creator-idea.md                    # Application idea creator prompt
-│   │   ├── creator-research.md                # Research agent prompt
-│   │   ├── creator-specification.md           # Specification agent prompt
-│   │   ├── creator-poc.md                     # PoC agent prompt
-│   │   ├── creator-development.md             # Development agent prompt
-│   │   ├── creator-deployment.md              # Deployment agent prompt
-│   │   └── validator-critic.md                # Validation agent prompt
-│   ├── templates/                             # Document and configuration templates
-│   │   ├── state-template.yaml                # Project state template
-│   │   └── project-spec-template.yaml         # Project specification template
-│   └── state.yaml                             # Current project status and metadata
-├── docs/                                      # Project Documentation
-│   ├── application-idea.md                    # [Phase 1] Structured project concept
-│   ├── research/                              # [Phase 2] Research documentation
-│   │   ├── research-track-1-frameworks.md     # Framework and technology analysis
-│   │   ├── research-track-2-best-practices.md # Best practices and architecture research
-│   │   ├── research-track-3-competition.md    # Competitive and market analysis
-│   │   └── tech-stack-recommendation.md       # Final technology recommendations
-│   ├── research-findings.md                   # [Phase 2] Consolidated research results
-│   ├── specification/                         # [Phase 3] Project specifications
-│   │   ├── functional-requirements.md         # Detailed functional requirements
-│   │   ├── non-functional-requirements.md     # Performance, security, scalability requirements
-│   │   ├── use-cases.md                       # Complete use case documentation
-│   │   ├── user-stories.md                    # User stories with acceptance criteria
-│   │   ├── api-design.md                      # API specifications and endpoints
-│   │   ├── database-schema.md                 # Data model and database design
-│   │   ├── architecture-overview.md           # System architecture documentation
-│   │   └── architecture-overview-updated.md   # [Phase 4] Updated architecture post-PoC
-│   ├── poc/                                   # [Phase 4] Proof of concept documentation
-│   │   ├── risk-assessment.md                 # Technical risk identification and analysis
-│   │   └── poc-results-summary.md             # Consolidated PoC findings and recommendations
-│   ├── design/                                # [Phase 5] Low-level design documentation
-│   │   ├── feature-[name]-design.md           # Detailed feature design documents
-│   │   ├── feature-[name]-units.md            # Units of work breakdown per feature
-│   │   ├── database-migrations/               # Database schema change documentation
-│   │   └── api-contracts/                     # API interface definitions
-│   ├── features/                              # [Phase 5] Feature implementation documentation
-│   │   └── [feature]-implementation.md        # Implementation notes per feature
-│   ├── api/                                   # [Phase 5] API documentation
-│   │   ├── [feature]-endpoints.md             # API documentation per feature
-│   │   └── api-documentation.md               # Complete API reference
-│   ├── development/                           # [Phase 5] Development process documentation
-│   │   ├── coding-standards.md                # Project-specific coding guidelines
-│   │   └── testing-strategy.md                # Testing approach and coverage requirements
-│   ├── deployment/                            # [Phase 6] Deployment and operations documentation
-│   │   ├── staging-deployment-guide.md        # Staging environment setup and deployment
-│   │   ├── production-deployment-guide.md     # Production deployment procedures
-│   │   ├── environment-variables.md           # Configuration documentation
-│   │   ├── database-setup.md                  # Database deployment and migration guide
-│   │   ├── monitoring-setup.md                # Monitoring and alerting configuration
-│   │   ├── deployment-checklist.md            # Pre/post deployment validation checklist
-│   │   ├── go-live-report.md                  # Go-live summary and metrics
-│   │   ├── maintenance-guide.md               # Ongoing maintenance procedures
-│   │   └── troubleshooting-guide.md           # Common issues and solutions
-│   ├── handover/                              # [Phase 6] Project handover documentation
-│   │   ├── technical-handover.md              # Technical team handover documentation
-│   │   ├── user-manual.md                     # End-user documentation and guides
-│   │   └── admin-manual.md                    # System administration procedures
-│   ├── phase-reports/                         # Phase completion summaries
-│   │   ├── idea-phase-report.md               # Application idea phase summary
-│   │   ├── research-phase-report.md           # Research phase summary and key decisions
-│   │   ├── specification-phase-report.md      # Specification phase summary
-│   │   ├── poc-phase-report.md                # PoC phase summary with risk mitigation status
-│   │   ├── development-phase-report.md        # Development phase summary and metrics
-│   │   └── deployment-phase-report.md         # Deployment phase summary and lessons learned
-│   ├── validation/                            # Quality assurance reports
-│   │   └── phase-[phase]-validation-report.md # Validation reports per phase
-│   └── project-completion-report.md           # [Phase 6] Final comprehensive project summary
-├── specs/                                     # Machine-readable specifications
-│   └── project-specification.yaml             # [Phase 3] Complete project specification in YAML format
-├── poc/                                       # [Phase 4] Proof of concept implementations
-│   ├── database-performance/                  # Database performance validation
-│   │   ├── test-queries.sql                   # Performance test queries
-│   │   └── performance-results.md             # Performance test results and analysis
-│   ├── api-integration/                       # Third-party API integration tests
-│   │   ├── auth-flow-test.js                  # Authentication flow validation
-│   │   ├── rate-limiting-test.js              # Rate limiting and error handling tests
-│   │   └── integration-results.md             # Integration test results and findings
-│   └── ui-framework/                          # Frontend framework validation
-│       ├── component-examples/                # Sample component implementations
-│       └── performance-benchmark.md           # Frontend performance benchmarks
-├── src/                                       # [Phase 5] Application source code
-│   ├── features/                              # Feature-based code organization
-│   │   └── [feature-name]/                    # Individual feature implementations
-│   │       ├── components/                    # UI components (if applicable)
-│   │       ├── services/                      # Business logic and services
-│   │       ├── models/                        # Data models and schemas
-│   │       ├── api/                           # API endpoints and routes
-│   │       ├── utils/                         # Feature-specific utilities
-│   │       └── index.js                       # Feature entry point and exports
-│   ├── shared/                                # Shared code and utilities
-│   │   ├── components/                        # Reusable UI components
-│   │   ├── services/                          # Shared business logic and services
-│   │   ├── utils/                             # Common utilities and helpers
-│   │   └── types/                             # Type definitions and interfaces
-│   ├── config/                                # Application configuration
-│   ├── middleware/                            # Application middleware
-│   └── app.js                                 # Application entry point
-├── tests/                                     # [Phase 5] Test suites
-│   ├── unit/                                  # Unit tests
-│   │   └── [feature]/                         # Unit tests organized by feature
-│   ├── integration/                           # Integration tests
-│   │   └── [feature]/                         # Integration tests organized by feature
-│   ├── e2e/                                   # End-to-end test suites
-│   ├── staging/                               # [Phase 6] Staging environment tests
-│   │   └── integration-tests.md               # Staging integration test results
-│   └── production/                            # [Phase 6] Production environment tests
-│       └── smoke-tests.md                     # Production smoke test results
-├── config/                                    # [Phase 5] Environment configurations
-├── scripts/                                   # [Phase 5/6] Automation scripts
-│   ├── deploy-staging.sh                      # Staging deployment automation
-│   ├── deploy-production.sh                   # Production deployment automation
-│   ├── run-smoke-tests.sh                     # Post-deployment validation automation
-│   ├── backup-database.sh                     # Database backup procedures
-│   ├── rollback-deployment.sh                # Deployment rollback procedures
-│   ├── ai-dev.sh                             # AI development process CLI
-│   └── verify-setup.sh                       # Setup verification script
-├── infrastructure/                            # [Phase 6] Infrastructure as Code
-│   ├── staging/                               # Staging environment configuration
-│   │   ├── docker-compose.yml                # Staging containerization setup
-│   │   └── env-config.yml                    # Staging environment configuration
-│   ├── production/                            # Production environment configuration
-│   │   ├── kubernetes-manifests/              # Kubernetes deployment manifests
-│   │   └── terraform/                         # Terraform infrastructure definitions
-│   └── monitoring/                            # Monitoring and observability setup
-│       ├── prometheus-config.yml              # Prometheus monitoring configuration
-│       └── grafana-dashboards/                # Grafana dashboard definitions
-├── docker/                                    # [Phase 5] Container configurations
-├── .github/workflows/                         # [Phase 5] CI/CD pipeline definitions
-├── README.md                                  # [Phase 5] Project setup and development guide
-└── CHANGELOG.md                               # [Phase 5] Development progress and change log
+├── .claude/                                   # AI Development Process Configuration
+│   ├── contracts/                            # Quality and standards contracts
+│   │   ├── core-contract.md                  # Universal development standards
+│   │   ├── phase-idea-contract.md            # Application idea phase standards
+│   │   ├── phase-research-contract.md        # Research phase standards
+│   │   ├── phase-specification-contract.md   # Specification phase standards
+│   │   ├── phase-poc-contract.md             # Proof of concept phase standards
+│   │   ├── phase-development-contract.md     # Development phase standards
+│   │   └── phase-deployment-contract.md      # Deployment phase standards
+│   ├── validations/                          # Quality assurance checklists
+│   │   ├── phase-idea-validation.md          # Idea phase validation checklist
+│   │   ├── phase-research-validation.md      # Research phase validation checklist
+│   │   ├── phase-specification-validation.md # Specification phase validation checklist
+│   │   ├── phase-poc-validation.md           # PoC phase validation checklist
+│   │   ├── phase-development-validation.md   # Development phase validation checklist
+│   │   └── phase-deployment-validation.md    # Deployment phase validation checklist
+│   ├── prompts/                              # AI agent prompt templates
+│   │   ├── session-init.md                   # Session initialization prompt
+│   │   ├── creator-idea.md                   # Application idea creator prompt
+│   │   ├── creator-research.md               # Research agent prompt
+│   │   ├── creator-specification.md          # Specification agent prompt
+│   │   ├── creator-poc.md                    # PoC agent prompt
+│   │   ├── creator-development.md            # Development agent prompt
+│   │   ├── creator-deployment.md             # Deployment agent prompt
+│   │   └── validator-critic.md               # Validation agent prompt
+│   ├── templates/                            # Document and configuration templates
+│   └── state.yaml                            # Current project status and metadata
+├── docs/                                     # Project Documentation
+│   ├── phase-1-idea/                        # Application idea phase documentation
+│   ├── phase-2-research/                    # Research phase documentation
+│   ├── phase-3-specification/               # Specification phase documentation
+│   ├── phase-4-poc/                         # Proof of concept phase documentation
+│   ├── phase-5-development/                 # Development phase documentation
+│   ├── phase-6-deployment/                  # Deployment phase documentation
+│   ├── validation/                          # Quality assurance reports
+│   └── handover/                            # Project handover documentation
+├── specs/                                   # Machine-readable specifications
+├── poc/                                     # Proof of concept implementations
+├── src/                                     # Application source code
+├── tests/                                   # Test suites
+└── deployment/                              # Deployment configurations and scripts
 ```
-
-This folder structure provides:
-- **Clear phase separation** with phase indicators showing when files are created
-- **Comprehensive documentation** for every aspect of the project
-- **Status tracking** for resumable AI development
-- **Quality assurance** through contracts and validation checklists
-- **Operational readiness** with deployment and maintenance documentation
-- **Knowledge preservation** with detailed phase reports and handover materials
-
-The structure is designed to be completely self-contained, allowing the AI development process to be set up in any new project directory and enabling full project lifecycle management from concept to production deployment.
