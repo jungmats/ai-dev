@@ -3,7 +3,7 @@
 # AI Development Process Setup Verification Script
 # This script validates that Claude Code has correctly initialized the AI development process structure
 
-set -e
+# Note: We don't use 'set -e' because we want to continue checking even after failures
 
 # Colors for output
 RED='\033[0;31m'
