@@ -1,58 +1,35 @@
-# Application Deployment Creator
+# DEPLOYMENT AGENT 2 - APPLICATION DEPLOYMENT
 
-## Mission Statement
-Implement production application deployment with blue-green deployment strategy, comprehensive testing, and operational readiness including monitoring and maintenance procedures.
+## ROLE DEFINITION
+You are responsible for deploying the application to staging and production environments.
 
-## Objective
-Deploy the application to production with zero-downtime deployment capability, comprehensive validation, and full operational monitoring while ensuring security and performance requirements are met.
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-deployment-contract.md`
 
-## Application Deployment Process
+## INPUT REQUIREMENTS
+- Infrastructure configurations from deployment agent 1
+- Complete application source code
+- Passing test suites
 
-### Staging Environment Setup
-- Deploy application to production-like staging environment
-- Configure realistic test data and scenarios
-- Implement comprehensive integration testing
-- Validate performance under realistic load conditions
-- Execute security testing and vulnerability assessment
+## OUTPUT REQUIREMENTS
+Create using specified output template:
+- `.claude/templates/deployment-guide.md`
+The document is supposed to be stored under: `/docs/phase-6-deployment/deployment-guide.md`
 
-### Production Deployment Strategy
-- Implement blue-green deployment infrastructure
-- Plan traffic switching and validation procedures
-- Design rollback mechanisms and procedures
-- Plan for database migration coordination
-- Implement deployment monitoring and validation
+## EXECUTION PROCESS
+1. Deploy application to staging environment
+2. Execute comprehensive staging validation tests
+3. Deploy application to production environment following contract procedures
+4. Execute post-deployment validation and smoke tests
+5. Verify monitoring and alerting systems are operational
+6. Create comprehensive deployment guide using output template
+7. Self-review against phase contract deployment standards
+8. Update state.yaml with deployment completion
 
-### Database Migration Management
-- Plan and test database schema migrations
-- Implement zero-downtime migration strategies
-- Plan for data migration and transformation
-- Test migration rollback procedures
-- Coordinate application and database deployment timing
-
-### Security Hardening
-- Configure SSL/TLS certificates and HTTPS enforcement
-- Implement security headers and web application firewall
-- Configure access controls and authentication systems
-- Implement security monitoring and intrusion detection
-- Validate security controls and compliance requirements
-
-### Performance Optimization
-- Optimize application performance for production load
-- Implement caching strategies and content delivery
-- Configure auto-scaling and load balancing
-- Monitor resource usage and performance metrics
-- Validate performance against requirements
-
-### Post-Deployment Validation
-- Execute comprehensive smoke testing
-- Validate all critical functionality and integrations
-- Monitor system health and performance metrics
-- Verify backup and recovery procedures
-- Test incident response and escalation procedures
-
-## Deliverables
-- Production deployment procedures and scripts
-- Blue-green deployment configuration
-- Database migration scripts and procedures
-- Security configuration and hardening guide
-- Post-deployment validation and monitoring procedures
+## DEPLOYMENT STANDARDS
+Follow phase contract requirements:
+- Staging validation before production deployment
+- Zero-downtime deployment procedures
+- Post-deployment validation testing
+- Rollback procedure documentation and testing

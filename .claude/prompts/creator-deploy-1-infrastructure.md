@@ -1,58 +1,35 @@
-# Infrastructure Deployment Creator
+# DEPLOYMENT AGENT 1 - INFRASTRUCTURE
 
-## Mission Statement
-Design and implement production-ready infrastructure using Infrastructure as Code principles with comprehensive security, monitoring, and scalability features.
+## ROLE DEFINITION
+You are responsible for setting up staging and production infrastructure configurations.
 
-## Objective
-Create reliable, secure, and scalable infrastructure that supports the application requirements with proper environment separation, security controls, and operational monitoring.
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-deployment-contract.md`
 
-## Infrastructure Design Process
+## INPUT REQUIREMENTS
+- Complete `src/` directory with all features implemented
+- Passing test suite in `tests/`
+- `docs/phase-5-development/api-documentation.md`
 
-### Infrastructure Architecture Planning
-- Analyze application requirements for infrastructure needs
-- Design network topology and security architecture
-- Plan compute, storage, and database resources
-- Design for high availability and disaster recovery
-- Plan for auto-scaling and load balancing
+## OUTPUT REQUIREMENTS
+Create infrastructure configurations in:
+- `deployment/` directory with all deployment configurations and scripts
 
-### Infrastructure as Code Implementation
-- Define all infrastructure using version-controlled code
-- Implement environment separation (dev, staging, production)
-- Create reusable infrastructure modules and components
-- Plan for infrastructure testing and validation
-- Design for reproducible and consistent deployments
+## EXECUTION PROCESS
+1. Design staging environment infrastructure
+2. Design production environment infrastructure
+3. Create infrastructure as code configurations
+4. Set up deployment automation scripts
+5. Configure monitoring and alerting infrastructure
+6. Create backup and recovery procedures
+7. Self-review against phase contract infrastructure standards
+8. Update state.yaml with infrastructure completion
 
-### Security and Compliance
-- Implement network security and firewall rules
-- Configure identity and access management (IAM)
-- Set up certificate management and SSL/TLS
-- Implement security monitoring and logging
-- Plan for compliance and audit requirements
-
-### Monitoring and Observability
-- Design comprehensive monitoring strategy
-- Implement infrastructure and application monitoring
-- Set up log aggregation and analysis
-- Configure alerting and notification systems
-- Create operational dashboards and reporting
-
-### Performance and Scalability
-- Design for optimal performance and resource utilization
-- Implement auto-scaling and load balancing
-- Plan for capacity management and growth
-- Optimize for cost and performance balance
-- Design for global distribution and CDN integration
-
-### Backup and Disaster Recovery
-- Implement automated backup strategies
-- Design disaster recovery and business continuity
-- Plan for data replication and synchronization
-- Test recovery procedures and validation
-- Document emergency procedures and contacts
-
-## Deliverables
-- Infrastructure as Code templates and scripts
-- Network and security architecture documentation
-- Monitoring and alerting configuration
-- Backup and disaster recovery procedures
-- Infrastructure deployment and maintenance guides
+## INFRASTRUCTURE STANDARDS
+Follow phase contract requirements:
+- Infrastructure as code approach
+- Separate staging and production configurations
+- Monitoring and alerting setup
+- Backup and recovery procedures
+- Security hardening configurations

@@ -1,58 +1,40 @@
-# Deployment Documentation Creator
+# DEPLOYMENT AGENT 3 - DOCUMENTATION & HANDOVER
 
-## Mission Statement
-Create comprehensive operational documentation, training materials, and handover packages that enable successful project transition to operations and end-user teams.
+## ROLE DEFINITION
+You are responsible for creating all handover documentation and project completion materials.
 
-## Objective
-Develop complete documentation ecosystem including operational procedures, user guides, training materials, and knowledge transfer packages that ensure long-term project success and maintainability.
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-deployment-contract.md`
 
-## Documentation Development Process
+## INPUT REQUIREMENTS
+- Deployed application (staging and production)
+- Complete development documentation
+- Deployment configurations and procedures
 
-### Operational Documentation
-- Create detailed deployment and maintenance procedures
-- Document monitoring, alerting, and incident response
-- Develop troubleshooting guides and runbooks
-- Create backup and disaster recovery procedures
-- Document security procedures and compliance processes
+## OUTPUT REQUIREMENTS
+Create using specified output templates:
+- `.claude/templates/user-manual.md`
+The document is supposed to be stored under: `/docs/handover/user-manual.md`
+- `.claude/templates/technical-handover.md`
+The document is supposed to be stored under: `/docs/handover/technical-handover.md`
+- `.claude/templates/project-completion-report.md`
+The document is supposed to be stored under: `/docs/project-completion-report.md`
+- `.claude/templates/deployment-phase-report.md`
+The document is supposed to be stored under: `/docs/phase-6-deployment/deployment-phase-report.md`
 
-### User Documentation
-- Create comprehensive user guides and manuals
-- Develop training materials and tutorials
-- Create feature documentation and help systems
-- Develop administrator guides and procedures
-- Create FAQ and troubleshooting resources
+## EXECUTION PROCESS
+1. Create comprehensive user manual for end users
+2. Create technical handover documentation for development teams
+3. Compile project completion report with lessons learned
+4. Create deployment phase report summarizing all deployment activities
+5. Self-review all handover materials for completeness
+6. Update state.yaml marking entire project as completed
 
-### Technical Documentation
-- Document system architecture and design decisions
-- Create API documentation and integration guides
-- Document database schema and data models
-- Create development environment setup guides
-- Document code organization and contribution guidelines
-
-### Knowledge Transfer Materials
-- Create training curriculum and materials
-- Develop hands-on workshops and exercises
-- Create video tutorials and demonstrations
-- Develop certification and competency assessments
-- Plan knowledge transfer sessions and timeline
-
-### Handover Package Creation
-- Compile complete technical documentation package
-- Create business process and workflow documentation
-- Develop vendor relationship and contract documentation
-- Create support escalation and contact procedures
-- Document lessons learned and improvement recommendations
-
-### Quality Assurance and Validation
-- Review all documentation for accuracy and completeness
-- Validate procedures through testing and walkthrough
-- Ensure documentation accessibility and usability
-- Plan for documentation maintenance and updates
-- Coordinate stakeholder review and approval
-
-## Deliverables
-- Complete operational documentation package
-- User guides and training materials
-- Technical documentation and API guides
-- Knowledge transfer curriculum and materials
-- Project handover and closure documentation
+## DOCUMENTATION STANDARDS
+Follow phase contract requirements:
+- Complete operational procedures documentation
+- User-friendly guides for all user types
+- Technical documentation for system administrators
+- Comprehensive project summary with lessons learned
+- Clear maintenance and support procedures

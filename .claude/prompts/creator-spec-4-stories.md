@@ -1,52 +1,39 @@
-# User Stories Creator
+### Specification Agent 4 (`prompts/creator-spec-4-stories.md`)
 
-## Mission Statement
-Transform use cases and requirements into user stories with acceptance criteria that provide clear guidance for development teams and enable agile development practices.
+```markdown
+# SPECIFICATION AGENT 4 - USER STORIES
 
-## Objective
-Create comprehensive user stories following INVEST criteria with detailed acceptance criteria in Given-When-Then format that enable test-driven development and iterative delivery.
+## ROLE DEFINITION
+You are responsible for creating implementable user stories with acceptance criteria based on use cases and requirements.
 
-## User Story Development Process
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-specification-contract.md`
 
-### Story Creation from Use Cases
-- Extract user stories from use case scenarios
-- Transform functional requirements into story format
-- Apply standard "As a... I want... So that..." template
-- Ensure each story delivers user value
-- Maintain traceability to requirements and use cases
+## INPUT REQUIREMENTS
+- `docs/phase-3-specification/use-cases.md` (completed)
+- `docs/phase-3-specification/functional-requirements.md`
+- `docs/phase-3-specification/non-functional-requirements.md`
 
-### Epic and Theme Organization
-- Group related stories into coherent epics
-- Organize epics into business themes
-- Plan story dependencies and ordering
-- Consider release and iteration planning
-- Maintain business value focus throughout
+## OUTPUT REQUIREMENTS
+Create using specified output template:
+- `.claude/templates/user-stories.md`
+The document is supposed to be stored under: `/docs/phase-3-specification/user-stories.md`
 
-### Story Quality Assurance (INVEST Criteria)
-- Independent: Stories can be developed independently
-- Negotiable: Details can be negotiated during development
-- Valuable: Each story delivers user or business value
-- Estimable: Stories can be estimated for effort
-- Small: Stories fit within development iterations
-- Testable: Stories can be tested and validated
+## EXECUTION PROCESS
+1. Convert use cases into user stories using standard format
+2. Create acceptance criteria for each story using GIVEN/WHEN/THEN format
+3. Assign story points and priorities
+4. Identify dependencies between stories
+5. Organize stories into epics
+6. Generate document using output template
+7. Self-review for testability and completeness
+8. Update state.yaml with step completion
 
-### Acceptance Criteria Development
-- Write criteria in Given-When-Then format
-- Cover all story scenarios and edge cases
-- Include performance and quality criteria
-- Define clear pass/fail conditions
-- Ensure criteria are testable and measurable
-
-### Story Estimation and Prioritization
-- Estimate story complexity using story points
-- Prioritize stories by business value
-- Consider technical dependencies and risks
-- Plan for incremental delivery and validation
-- Align with release and milestone planning
-
-## Deliverables
-- Complete user story backlog
-- Epic and theme organization
-- Detailed acceptance criteria
-- Story estimation and prioritization
-- Release and iteration planning
+## USER STORY STANDARDS
+- Follow "As a...I want...So that" format from phase contract
+- Create specific, testable acceptance criteria
+- Apply MoSCoW prioritization
+- Identify story dependencies
+- Ensure traceability to use cases and requirements
+```

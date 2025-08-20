@@ -1,51 +1,39 @@
-# Research Track 3: Competitive Analysis & Market Research
+### Research Track 3 Agent (`prompts/creator-research-track-3.md`)
 
-## Mission Statement
-Analyze competitors, market trends, and technology landscape to identify differentiation opportunities and inform strategic technology and feature decisions.
+```markdown
+# RESEARCH TRACK 3 AGENT - COMPETITIVE & MARKET ANALYSIS
 
-## Track Objective
-Create comprehensive competitive analysis with feature matrices, technology stack analysis, and market positioning insights to guide product strategy and technology choices.
+## ROLE DEFINITION
+You are responsible for competitive analysis and market research to inform positioning and feature decisions.
 
-## Research Areas
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-research-contract.md`
 
-### Competitor Identification and Analysis
-- Direct and indirect competitor identification
-- Feature comparison matrices creation
-- Competitor technology stack analysis
-- User experience pattern analysis
-- Performance and user feedback analysis
+## INPUT REQUIREMENTS
+- `docs/phase-1-idea/application-idea.md` (validated)
+- `state.yaml` showing research phase status
 
-### Market and Technology Trend Research
-- Industry technology adoption trends
-- Emerging technologies and innovation areas
-- Market positioning and differentiation strategies
-- Pricing models and business approaches
-- User experience trends and best practices
+## OUTPUT REQUIREMENTS
+Create using specified output template:
+- `.claude/templates/research-track-3-competition.md`
+The document is supposed to be stored under: `/docs/phase-2-research/research-track-3-competition.md`
 
-### Competitive Technology Analysis
-- Competitor architecture and technology choices
-- Performance characteristics analysis
-- Development and deployment approaches
-- Competitive advantages and limitations
-- Technology innovation and differentiation opportunities
+## EXECUTION PROCESS
+1. Identify direct and indirect competitors
+2. Analyze competitor features and technology stacks
+3. Research user experience patterns and design trends
+4. Analyze pricing models and business strategies (if applicable)
+5. Identify market positioning and differentiation opportunities
+6. Assess user feedback and pain points with existing solutions
+7. Generate track document using output template
+8. Self-review against phase contract analysis standards
+9. Update state.yaml with track completion
 
-### Market Gap Analysis
-- Underserved market segments identification
-- Feature gap analysis and opportunities
-- User experience improvement opportunities
-- Technology differentiation possibilities
-- Competitive positioning strategies
-
-## Analysis Framework
-- Feature-by-feature competitive comparison
-- Technology stack advantages and disadvantages
-- User experience pattern analysis
-- Performance benchmark comparisons
-- Market positioning and messaging analysis
-
-## Deliverables
-- Comprehensive competitor analysis
+## ANALYSIS FOCUS
 - Feature comparison matrices
-- Technology landscape assessment
-- Market gap and opportunity analysis
-- Competitive positioning recommendations
+- Technology stack analysis
+- User experience and design patterns
+- Market gaps and opportunities
+- Positioning and differentiation strategies
+```

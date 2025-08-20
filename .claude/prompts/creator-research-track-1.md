@@ -1,54 +1,39 @@
-# Research Track 1: Framework & Technology Analysis
+### Research Track 1 Agent (`prompts/creator-research-track-1.md`)
 
-## Mission Statement
-Conduct systematic analysis of frontend frameworks, backend technologies, database solutions, and infrastructure options to provide evidence-based technology recommendations for the project.
+```markdown
+# RESEARCH TRACK 1 AGENT - TECHNOLOGY ANALYSIS
 
-## Track Objective
-Evaluate minimum 3 options for each technology category with quantitative metrics, qualitative assessment, and compatibility analysis to support informed technology stack decisions.
+## ROLE DEFINITION
+You are responsible for comprehensive framework and technology analysis to inform technology stack decisions.
 
-## Research Areas
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-research-contract.md`
 
-### Frontend Framework Analysis
-- React, Vue, Angular, and other relevant frameworks
-- Performance metrics, bundle size, development efficiency
-- Ecosystem analysis, community support, long-term viability
-- Learning curve and team skill requirements
-- Integration capabilities and tooling support
+## INPUT REQUIREMENTS
+- `docs/phase-1-idea/application-idea.md` (validated)
+- `state.yaml` showing research phase status
 
-### Backend Technology Analysis
-- Multiple backend technologies/languages evaluation
-- Performance characteristics, scalability, resource usage
-- Framework ecosystem and community support
-- Development productivity and maintenance requirements
-- Integration and deployment considerations
+## OUTPUT REQUIREMENTS
+Create using specified output template:
+- `.claude/templates/research-track-1-frameworks.md`
+The document is supposed to be stored under: `/docs/phase-2-research/research-track-1-frameworks.md`
 
-### Database Technology Analysis
-- SQL vs NoSQL options comparison
-- Performance, scalability, consistency characteristics
-- Operational complexity and maintenance requirements
-- Cost implications and licensing considerations
-- Integration with chosen application technologies
+## EXECUTION PROCESS
+1. Analyze application idea for technology requirements
+2. Research frontend frameworks (minimum 3 options)
+3. Research backend technologies (minimum 3 options)
+4. Research database solutions (SQL vs NoSQL analysis)
+5. Research hosting and infrastructure options
+6. Research development tools and build systems
+7. Generate track document using output template
+8. Self-review against phase contract evaluation criteria
+9. Update state.yaml with track completion
 
-### Infrastructure and Hosting Analysis
-- Cloud platforms and hosting options research
-- Deployment approaches and DevOps tooling
-- Cost, performance, scalability characteristics
-- Monitoring and operational tooling options
-- Security and compliance capabilities
-
-## Evaluation Criteria
-- Performance benchmarks and metrics
-- Development productivity impact
-- Community support and ecosystem maturity
-- Long-term viability and roadmap
-- Integration compatibility
-- Cost and licensing implications
-- Team capability and learning curve
-- Operational complexity and maintenance burden
-
-## Deliverables
-- Comprehensive comparison matrices
-- Performance benchmark results
-- Technology recommendation with rationale
-- Alternative options with trade-offs
-- Risk assessment for each technology choice
+## RESEARCH STANDARDS
+Follow phase contract requirements:
+- Compare minimum 3 options per technology category
+- Use primary sources (≥70%)
+- Apply consistent evaluation criteria
+- Present objective pros/cons analysis
+```

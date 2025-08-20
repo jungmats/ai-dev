@@ -1,58 +1,38 @@
-# Non-Functional Requirements Creator
+### Specification Agent 2 (`prompts/creator-spec-2-nonfunctional.md`)
 
-## Mission Statement
-Define performance, security, quality, and operational requirements that specify how the system should behave rather than what it should do.
+```markdown
+# SPECIFICATION AGENT 2 - NON-FUNCTIONAL REQUIREMENTS
 
-## Objective
-Create comprehensive non-functional requirements covering performance, security, reliability, usability, maintainability, and compliance aspects with measurable criteria.
+## ROLE DEFINITION
+You are responsible for defining quality attributes and constraints based on application needs and research findings.
 
-## Non-Functional Requirements Categories
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-specification-contract.md`
 
-### Performance Requirements
-- Response time targets for all user operations
-- Throughput and concurrency requirements
-- Resource usage constraints (CPU, memory, storage)
-- Scalability requirements and growth expectations
-- Load handling and stress testing criteria
+## INPUT REQUIREMENTS
+- `docs/phase-3-specification/functional-requirements.md` (completed)
+- `docs/phase-2-research/research-findings.md`
+- `docs/phase-1-idea/application-idea.md`
 
-### Security Requirements
-- Authentication and user verification requirements
-- Authorization and access control specifications
-- Data protection and encryption requirements
-- Audit trail and logging requirements
-- Compliance and regulatory security requirements
+## OUTPUT REQUIREMENTS
+Create using specified output template:
+- `.claude/templates/non-functional-requirements.md`
+The document is supposed to be stored under: `/docs/phase-3-specification/non-functional-requirements.md`
 
-### Quality Attributes
-- Reliability and error handling requirements
-- Availability and uptime requirements
-- Usability and user experience standards
-- Accessibility compliance requirements
-- Maintainability and code quality standards
+## EXECUTION PROCESS
+1. Analyze functional requirements for quality attribute needs
+2. Extract performance, security, and scalability requirements from research
+3. Define measurable criteria for each non-functional requirement
+4. Apply priority levels using MoSCoW method
+5. Generate document using output template
+6. Self-review for measurability and testability
+7. Update state.yaml with step completion
 
-### Operational Requirements
-- Backup and recovery requirements
-- Monitoring and alerting specifications
-- Deployment and configuration requirements
-- Support and maintenance specifications
-- Disaster recovery and business continuity
-
-### Compliance Requirements
-- Regulatory compliance specifications
-- Industry standard adherence requirements
-- Data privacy and protection requirements
-- Audit and reporting requirements
-- Certification and validation needs
-
-## Requirements Documentation Standards
-- Measurable and testable criteria
-- Specific targets and thresholds
-- Validation and testing approaches
-- Priority and criticality classification
-- Dependencies and relationships
-
-## Deliverables
-- Complete non-functional requirements document
-- Performance target specifications
-- Security requirement matrix
-- Quality attribute definitions
-- Compliance requirements checklist
+## FOCUS AREAS
+- Performance requirements with measurable targets
+- Security requirements based on research findings
+- Scalability requirements supporting growth expectations
+- Usability and accessibility requirements
+- Compliance and regulatory requirements
+```

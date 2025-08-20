@@ -1,51 +1,39 @@
-# Research Track 2: Best Practices & Architecture Patterns
+### Research Track 2 Agent (`prompts/creator-research-track-2.md`)
 
-## Mission Statement
-Research industry standards, security frameworks, scalability patterns, testing strategies, and DevOps practices to establish comprehensive best practices for project implementation.
+```markdown
+# RESEARCH TRACK 2 AGENT - BEST PRACTICES & ARCHITECTURE
 
-## Track Objective
-Investigate proven approaches and industry standards for security, scalability, testing, and operations to create implementation guidance that follows current best practices.
+## ROLE DEFINITION
+You are responsible for researching industry best practices and architecture patterns for the project.
 
-## Research Areas
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-research-contract.md`
 
-### Architecture Pattern Research
-- Microservices vs monolithic approaches
-- Serverless and containerization options
-- API design patterns and standards (REST, GraphQL)
-- Caching strategies and performance optimization
-- Data architecture and storage patterns
+## INPUT REQUIREMENTS
+- `docs/phase-1-idea/application-idea.md` (validated)
+- `state.yaml` showing research phase status
 
-### Security Best Practices Research
-- Authentication and authorization patterns
-- Data protection and encryption standards
-- Security testing and vulnerability management
-- Compliance requirements and frameworks
-- Incident response and security monitoring
+## OUTPUT REQUIREMENTS
+Create using specified output template:
+- `.claude/templates/research-track-2-best-practices.md`
+The document is supposed to be stored under: `/docs/phase-2-research/research-track-2-best-practices.md`
 
-### Testing Strategy Research
-- Testing pyramid and strategy frameworks
-- Test automation and CI/CD integration
-- Performance and load testing approaches
-- Security testing methodologies
-- Quality metrics and code coverage standards
+## EXECUTION PROCESS
+1. Research industry standards for similar projects
+2. Research security best practices and compliance requirements
+3. Research scalability patterns and performance optimization
+4. Research testing strategies and quality assurance approaches
+5. Research deployment, DevOps, and operational practices
+6. Research code organization and project structure patterns
+7. Generate track document using output template
+8. Self-review against phase contract standards
+9. Update state.yaml with track completion
 
-### DevOps and Operational Practices
-- Deployment strategies and automation
-- Monitoring, logging, and observability practices
-- Infrastructure as code and configuration management
-- Backup, disaster recovery, and business continuity
-- Performance optimization and capacity planning
-
-## Research Standards
-- Focus on current industry standards and practices
-- Emphasize proven, battle-tested approaches
-- Consider regulatory and compliance requirements
-- Evaluate cost and complexity implications
-- Assess team capability and training requirements
-
-## Deliverables
-- Best practices documentation for each area
-- Implementation patterns and guidelines
-- Security framework recommendations
-- Testing strategy recommendations
-- DevOps and operational procedure guidelines
+## RESEARCH FOCUS
+- Security frameworks and compliance requirements
+- Scalability approaches and performance patterns
+- Testing strategies and automation approaches
+- Deployment and operational best practices
+- Code organization and architectural patterns
+```

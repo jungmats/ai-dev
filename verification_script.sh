@@ -169,8 +169,35 @@ echo
 
 # Check template files
 echo "📝 Checking Template Files..."
-check_file ".claude/templates/state-template.yaml" "Project state template"
-check_file ".claude/templates/project-spec-template.yaml" "Project specification template"
+check_file ".claude/templates/application-idea.md" "Application idea template"
+check_file ".claude/templates/idea-phase-report.md" "Idea phase report template"
+check_file ".claude/templates/research-track-1-frameworks.md" "Research track 1 template"
+check_file ".claude/templates/research-track-2-best-practices.md" "Research track 2 template"
+check_file ".claude/templates/research-track-3-competition.md" "Research track 3 template"
+check_file ".claude/templates/research-findings.md" "Research findings template"
+check_file ".claude/templates/tech-stack-recommendation.md" "Tech stack recommendation template"
+check_file ".claude/templates/research-phase-report.md" "Research phase report template"
+check_file ".claude/templates/functional-requirements.md" "Functional requirements template"
+check_file ".claude/templates/non-functional-requirements.md" "Non-functional requirements template"
+check_file ".claude/templates/use-cases.md" "Use cases template"
+check_file ".claude/templates/user-stories.md" "User stories template"
+check_file ".claude/templates/api-design.md" "API design template"
+check_file ".claude/templates/database-schema.md" "Database schema template"
+check_file ".claude/templates/architecture-overview.md" "Architecture overview template"
+check_file ".claude/templates/project-specification.yaml" "Project specification YAML template"
+check_file ".claude/templates/specification-phase-report.md" "Specification phase report template"
+check_file ".claude/templates/risk-assessment.md" "Risk assessment template"
+check_file ".claude/templates/poc-results-summary.md" "PoC results summary template"
+check_file ".claude/templates/poc-phase-report.md" "PoC phase report template"
+check_file ".claude/templates/feature-design.md" "Feature design template"
+check_file ".claude/templates/feature-units.md" "Feature units template"
+check_file ".claude/templates/api-documentation.md" "API documentation template"
+check_file ".claude/templates/development-phase-report.md" "Development phase report template"
+check_file ".claude/templates/deployment-guide.md" "Deployment guide template"
+check_file ".claude/templates/user-manual.md" "User manual template"
+check_file ".claude/templates/technical-handover.md" "Technical handover template"
+check_file ".claude/templates/project-completion-report.md" "Project completion report template"
+check_file ".claude/templates/deployment-phase-report.md" "Deployment phase report template"
 echo
 
 # Check state.yaml file
@@ -219,6 +246,80 @@ if [ -f ".claude/prompts/creator-idea.md" ]; then
     check_file_content ".claude/prompts/creator-idea.md" "# APPLICATION IDEA CREATOR AGENT" "Idea creator header"
     check_file_content ".claude/prompts/creator-idea.md" "CONTRACTS TO LOAD" "Contract loading section"
 fi
+echo
+
+# Check contract references in prompt files
+echo "🔗 Checking Contract References in Prompts..."
+
+# Function to check contract references in a prompt file
+check_contract_references() {
+    local prompt_file=$1
+    local prompt_name=$(basename "$prompt_file" .md)
+    
+    if [ ! -f "$prompt_file" ]; then
+        print_status "FAIL" "Prompt file missing: $prompt_file"
+        return 1
+    fi
+    
+    # Extract contract references from the prompt file
+    grep -E "\.claude/contracts/.*\.md" "$prompt_file" | while read -r line; do
+        # Extract the contract file path
+        contract_path=$(echo "$line" | grep -oE "\.claude/contracts/[^[:space:]]*\.md" | head -1)
+        
+        if [ -n "$contract_path" ]; then
+            if [ -f "$contract_path" ]; then
+                print_status "PASS" "Contract reference valid in $prompt_name: $contract_path"
+            else
+                print_status "FAIL" "Contract reference broken in $prompt_name: $contract_path"
+            fi
+        fi
+    done
+}
+
+# Check all prompt files for contract references
+for prompt_file in .claude/prompts/*.md; do
+    if [ -f "$prompt_file" ]; then
+        check_contract_references "$prompt_file"
+    fi
+done
+
+echo
+
+# Check template references in prompt files
+echo "📋 Checking Template References in Prompts..."
+
+# Function to check template references in a prompt file
+check_template_references() {
+    local prompt_file=$1
+    local prompt_name=$(basename "$prompt_file" .md)
+    
+    if [ ! -f "$prompt_file" ]; then
+        print_status "FAIL" "Prompt file missing: $prompt_file"
+        return 1
+    fi
+    
+    # Extract template references from OUTPUT REQUIREMENTS section
+    awk '/## OUTPUT REQUIREMENTS/,/^## / {print}' "$prompt_file" | grep -E "\.claude/templates/.*\.(md|yaml)" | while read -r line; do
+        # Extract the template file path, handling bullet points and backticks
+        template_path=$(echo "$line" | sed 's/.*`\(\.claude\/templates\/[^`]*\)\`.*/\1/' | grep -E "\.claude/templates/.*\.(md|yaml)")
+        
+        if [ -n "$template_path" ] && [ "$template_path" != "$line" ]; then
+            if [ -f "$template_path" ]; then
+                print_status "PASS" "Template reference valid in $prompt_name: $(basename "$template_path")"
+            else
+                print_status "FAIL" "Template reference broken in $prompt_name: $template_path"
+            fi
+        fi
+    done
+}
+
+# Check all prompt files for template references
+for prompt_file in .claude/prompts/*.md; do
+    if [ -f "$prompt_file" ]; then
+        check_template_references "$prompt_file"
+    fi
+done
+
 echo
 
 # Check for any obvious issues

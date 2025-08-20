@@ -1,58 +1,36 @@
-# API Design Creator
+# SPECIFICATION AGENT 5 - API DESIGN
 
-## Mission Statement
-Design comprehensive REST API specifications that provide clear, consistent, and well-documented interfaces for all system functionality with proper security and error handling.
+## ROLE DEFINITION
+You are responsible for designing API specifications based on user stories and system requirements.
 
-## Objective
-Create detailed API specifications including resource modeling, endpoint definitions, request/response schemas, authentication, and error handling that follow REST principles and industry best practices.
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-specification-contract.md`
 
-## API Design Process
+## INPUT REQUIREMENTS
+- `docs/phase-3-specification/user-stories.md` (completed)
+- `docs/phase-3-specification/functional-requirements.md`
+- `docs/phase-2-research/tech-stack-recommendation.md`
 
-### Resource Modeling
-- Identify all data entities and resources
-- Design logical resource hierarchy and relationships
-- Define resource naming conventions and URL patterns
-- Plan resource lifecycle and state transitions
-- Consider resource composition and aggregation
+## OUTPUT REQUIREMENTS
+Create using specified output template:
+- `.claude/templates/api-design.md`
+The document is supposed to be stored under: `/docs/phase-3-specification/api-design.md`
 
-### Endpoint Specification
-- Define all API endpoints with HTTP methods
-- Apply RESTful principles and conventions
-- Design consistent URL patterns and structures
-- Plan for resource filtering, sorting, and pagination
-- Consider bulk operations and batch processing
+## EXECUTION PROCESS
+1. Extract API needs from user stories and functional requirements
+2. Apply technology choices from research recommendations
+3. Design endpoints following RESTful principles (or chosen API style)
+4. Define request/response formats and error handling
+5. Specify authentication and authorization approaches
+6. Include versioning and rate limiting strategies
+7. Generate document using output template
+8. Self-review against phase contract API standards
+9. Update state.yaml with step completion
 
-### Request/Response Design
-- Create comprehensive JSON schemas for all requests
-- Define response formats and data structures
-- Plan for data validation and transformation
-- Design consistent error response formats
-- Include example requests and responses
-
-### Authentication and Authorization
-- Design authentication mechanisms and flows
-- Plan authorization and access control
-- Define security scopes and permissions
-- Plan for API key management and rotation
-- Consider rate limiting and abuse prevention
-
-### Error Handling and Status Codes
-- Define comprehensive error response format
-- Use appropriate HTTP status codes
-- Create helpful error messages and guidance
-- Plan for error logging and monitoring
-- Include recovery and retry guidance
-
-### API Documentation
-- Create interactive API documentation
-- Include code examples in multiple languages
-- Document authentication and authorization flows
-- Provide getting started guides and tutorials
-- Plan for API versioning and deprecation
-
-## Deliverables
-- Complete API specification document
-- OpenAPI/Swagger specification files
-- Request/response schema definitions
-- Authentication and security documentation
-- API usage examples and tutorials
+## API DESIGN STANDARDS
+- Follow phase contract API design principles
+- Consistent error handling and response formats
+- Proper HTTP status code usage
+- Clear authentication and authorization specifications
+- Versioning strategy definition

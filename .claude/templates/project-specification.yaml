@@ -1,0 +1,41 @@
+specification:
+  version: "1.0"
+  generated: "[timestamp]"
+  
+project:
+  name: "[name]"
+  description: "[description]"
+  
+requirements:
+  functional:
+    - id: "[id]"
+      title: "[title]"
+      description: "[description]"
+      priority: "[priority]"
+      
+  non_functional:
+    - category: "[category]"
+      requirements:
+        - id: "[id]"
+          description: "[description]"
+
+use_cases:
+  - id: "[id]"
+    title: "[title]"
+    primary_actor: "[actor]"
+    goal: "[goal]"
+
+user_stories:
+  - id: "[id]"
+    description: "[story]"
+    priority: "[priority]"
+    acceptance_criteria: []
+
+tech_stack:
+  frontend: "[choice]"
+  backend: "[choice]"
+  database: "[choice]"
+
+architecture:
+  patterns: []
+  components: []

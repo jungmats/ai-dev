@@ -1,58 +1,42 @@
-# Specification Consolidation Creator
+# SPECIFICATION AGENT 7 - CONSOLIDATION & ARCHITECTURE
 
-## Mission Statement
-Integrate all specification components into a cohesive, machine-readable project specification that provides complete implementation guidance with full traceability and consistency validation.
+## ROLE DEFINITION
+You are responsible for creating the final architecture overview and machine-readable specification that consolidates all specification work.
 
-## Objective
-Synthesize functional requirements, non-functional requirements, use cases, user stories, API design, and database schema into unified specification documents and machine-readable YAML format.
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-specification-contract.md`
 
-## Consolidation Process
+## INPUT REQUIREMENTS
+- `docs/phase-3-specification/functional-requirements.md` (completed)
+- `docs/phase-3-specification/non-functional-requirements.md` (completed)
+- `docs/phase-3-specification/use-cases.md` (completed)
+- `docs/phase-3-specification/user-stories.md` (completed)
+- `docs/phase-3-specification/api-design.md` (completed)
+- `docs/phase-3-specification/database-schema.md` (completed)
+- `docs/phase-2-research/tech-stack-recommendation.md`
 
-### Cross-Component Integration
-- Validate consistency across all specification components
-- Ensure complete requirement coverage by design elements
-- Verify traceability from requirements to implementation
-- Identify and resolve conflicts or contradictions
-- Validate feasibility and implementation readiness
+## OUTPUT REQUIREMENTS
+Create using specified output templates:
+- `.claude/templates/architecture-overview.md`
+The document is supposed to be stored under: `/docs/phase-3-specification/architecture-overview.md`
+- `.claude/templates/project-specification.yaml`
+The document is supposed to be stored under: `/specs/project-specification.yaml`
+- `.claude/templates/specification-phase-report.md`
+The document is supposed to be stored under: `/docs/phase-3-specification/specification-phase-report.md`
 
-### Architecture Overview Creation
-- Integrate API and database designs into system architecture
-- Document component interactions and data flows
-- Define integration patterns and communication protocols
-- Plan for deployment and operational architecture
-- Include technology stack integration from research phase
+## EXECUTION PROCESS
+1. Validate all specification documents are completed
+2. Create comprehensive architecture overview integrating all components
+3. Generate machine-readable YAML specification with all requirements
+4. Verify traceability between requirements, use cases, and user stories
+5. Create phase report summarizing specification outcomes
+6. Self-review for consistency across all specifications
+7. Update state.yaml marking specification phase complete
+8. Prepare for human validation
 
-### Machine-Readable Specification Creation
-- Convert all requirements to structured YAML format
-- Include complete traceability links between elements
-- Define implementation priorities and dependencies
-- Include quality gates and validation criteria
-- Plan for automated validation and consistency checking
-
-### Implementation Guidance Development
-- Define development approach and methodology
-- Specify testing strategy and coverage requirements
-- Document deployment and operational requirements
-- Include monitoring and observability specifications
-- Plan change management and versioning approach
-
-### Quality Validation and Review
-- Validate specification completeness and consistency
-- Ensure all stakeholder perspectives are addressed
-- Verify implementation feasibility with chosen technologies
-- Validate against business objectives and success criteria
-- Prepare for stakeholder review and approval
-
-### Gap Analysis and Completion
-- Identify any missing specification elements
-- Ensure all requirements have corresponding design elements
-- Verify all use cases are covered by user stories
-- Validate API design covers all functional requirements
-- Ensure database design supports all data requirements
-
-## Deliverables
-- Consolidated specification document
-- System architecture overview
-- Machine-readable YAML specification
-- Implementation roadmap and guidance
-- Specification validation and approval package
+## CONSOLIDATION FOCUS
+- System architecture integrating all specification components
+- Technology stack integration with architectural decisions
+- Complete YAML specification for programmatic access
+- Traceability verification across all specification artifacts

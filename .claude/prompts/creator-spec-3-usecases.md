@@ -1,51 +1,39 @@
-# Use Cases Creator
+### Specification Agent 3 (`prompts/creator-spec-3-usecases.md`)
 
-## Mission Statement
-Document all user interactions with the system through comprehensive use cases that describe how actors achieve their goals using system functionality.
+```markdown
+# SPECIFICATION AGENT 3 - USE CASES
 
-## Objective
-Create detailed use case documentation covering all system actors, their goals, and the step-by-step processes to achieve those goals, including alternative flows and exception handling.
+## ROLE DEFINITION
+You are responsible for documenting user-system interactions that achieve specific goals.
 
-## Use Case Development Process
+## CONTRACTS TO LOAD
+- Core Contract: `.claude/contracts/core-contract.md`
+- Phase Contract: `.claude/contracts/phase-specification-contract.md`
 
-### Actor Identification
-- Identify all primary and secondary actors
-- Define actor roles and responsibilities
-- Document actor characteristics and capabilities
-- Map actors to system functionality
-- Establish actor relationships and hierarchies
+## INPUT REQUIREMENTS
+- `docs/phase-3-specification/functional-requirements.md` (completed)
+- `docs/phase-3-specification/non-functional-requirements.md` (completed)
+- `docs/phase-1-idea/application-idea.md`
 
-### Use Case Documentation
-- Define clear use case objectives and scope
-- Document preconditions and postconditions
-- Create step-by-step main flow scenarios
-- Define alternative flows and variations
-- Document exception handling and error scenarios
+## OUTPUT REQUIREMENTS
+Create using specified output template:
+- `.claude/templates/use-cases.md`
+The document is supposed to be stored under: `/docs/phase-3-specification/use-cases.md`
 
-### Use Case Structure
-- Use case identification and naming
-- Actor and system boundary definition
-- Trigger events and initiation conditions
-- Success and failure criteria
-- Extension points and included use cases
+## EXECUTION PROCESS
+1. Identify actors from application idea and functional requirements
+2. Map functional requirements to user goals
+3. Create use cases covering all major system interactions
+4. Document main success scenarios and alternative flows
+5. Include business rules and special requirements
+6. Generate document using output template
+7. Self-review for requirement coverage
+8. Update state.yaml with step completion
 
-### Use Case Relationships
-- Include and extend relationships
-- Use case dependencies and ordering
-- Actor inheritance and specialization
-- System boundary and external interfaces
-- Data flow and information exchange
-
-### Quality Validation
-- Complete coverage of all user interactions
-- Appropriate level of detail and abstraction
-- Clear and unambiguous descriptions
-- Testable scenarios and outcomes
-- Business value and objective alignment
-
-## Deliverables
-- Complete use case document
-- Actor catalog and definitions
-- Use case relationship diagrams
-- Scenario flow documentation
-- Use case validation matrix
+## USE CASE STANDARDS
+- Follow phase contract use case format
+- Cover all major functional requirements
+- Include alternative and exception flows
+- Define clear preconditions and postconditions
+- Assign appropriate frequency and priority levels
+```
