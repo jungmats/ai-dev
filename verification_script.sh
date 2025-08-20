@@ -252,6 +252,7 @@ echo
 echo "🔗 Checking Contract References in Prompts..."
 
 # Function to check contract references in a prompt file
+# Validates that all .claude/contracts/*.md files referenced in prompts actually exist
 check_contract_references() {
     local prompt_file=$1
     local prompt_name=$(basename "$prompt_file" .md)
@@ -288,7 +289,8 @@ echo
 # Check template references in prompt files
 echo "📋 Checking Template References in Prompts..."
 
-# Function to check template references in a prompt file
+# Function to check template references in a prompt file  
+# Validates that all .claude/templates/*.md and *.yaml files referenced in OUTPUT REQUIREMENTS sections actually exist
 check_template_references() {
     local prompt_file=$1
     local prompt_name=$(basename "$prompt_file" .md)
@@ -298,12 +300,13 @@ check_template_references() {
         return 1
     fi
     
-    # Extract template references from OUTPUT REQUIREMENTS section
-    awk '/## OUTPUT REQUIREMENTS/,/^## / {print}' "$prompt_file" | grep -E "\.claude/templates/.*\.(md|yaml)" | while read -r line; do
+    # Extract template references from the entire file (simpler approach)
+    grep -E "\\.claude/templates/.*\\.(md|yaml)" "$prompt_file" | while read -r line; do
         # Extract the template file path, handling bullet points and backticks
-        template_path=$(echo "$line" | sed 's/.*`\(\.claude\/templates\/[^`]*\)\`.*/\1/' | grep -E "\.claude/templates/.*\.(md|yaml)")
+        template_path=$(echo "$line" | sed 's/.*`\(\.claude\/templates\/[^`]*\)\`.*/\1/')
         
-        if [ -n "$template_path" ] && [ "$template_path" != "$line" ]; then
+        # Verify it's actually a valid template path
+        if [[ "$template_path" =~ ^\.claude/templates/.*\.(md|yaml)$ ]]; then
             if [ -f "$template_path" ]; then
                 print_status "PASS" "Template reference valid in $prompt_name: $(basename "$template_path")"
             else
