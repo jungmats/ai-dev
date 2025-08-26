@@ -66,14 +66,14 @@ This AI development process transforms rough project ideas into production-ready
    
    In Claude Code, run:
    ```
-   Read the complete_ai_dev_process.md file from the cloned repository and set up the complete AI development process structure. Create all directories, generate all contract files, prompt templates, validation checklists, and verification tools exactly as specified.
+   Read the complete_ai_dev_process.md file from the cloned repository to understand the complete AI development process structure. Familiarize yourself with .claude code and inspect all contract files to be respected, the prompt templates to be used, and the validation checklists to be run after each phase. Once you are ready, ask the user to provide a rough idea of the application they want to build.
    ```
 
 3. **Verify Setup**
    ```bash
-   # Run the verification script
-   chmod +x verify-setup.sh
-   ./verify-setup.sh
+   # Run the verification script to make sure all components are correctly set up
+   chmod +x verify_setup.sh
+   ./verify_setup.sh
    ```
 
 4. **Start Your First Project**
@@ -84,7 +84,18 @@ This AI development process transforms rough project ideas into production-ready
    
    In Claude Code:
    ```
-   Load the session-init prompt and begin the AI development process. I want to create [describe your project idea].
+   Load the session-init prompt and begin the AI development process based on the application idea the user provided. Ask the user for any additional information needed at each phase and guide them through the process.
+   ```
+   
+5. **Resume in case of interruption**
+   ```bash
+   # Initialize the AI development session
+   claude-code
+   ```
+   
+   In Claude Code:
+   ```
+   Check the state.yaml file to determine the current phase and step. Load the appropriate prompt for that phase and continue the process from where it left off.
    ```
 
 ## 📁 Project Structure

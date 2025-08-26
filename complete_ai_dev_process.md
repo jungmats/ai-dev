@@ -1,11 +1,53 @@
 # AI-Driven Development Process - Complete Setup Guide
 
-> **Setup Instructions for Claude Code:**
-> 1. Ensure the following markdown files are present: ai_prompts.md, contracts_and_validations.md, minimal_output_templates.md
-> 2. Start Claude Code in your desired project directory
-> 3. Run: "Read this markdown file and set up the complete AI development process structure. Create all directories, generate all contract files, prompt templates, validation checklists, CLI scripts, and verification tools exactly as specified."
-> 4. Run the generated verification script to ensure complete setup
-> 5. Customize contracts and templates for your specific needs
+## 🚀 Quick Start
+
+### Prerequisites
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed
+- Git for version control
+- Basic understanding of software development
+
+### Setup
+
+1. **Clone the Repository**
+   ```bash
+   # Clone the AI development process repository
+   git clone https://github.com/jungmats/ai-dev.git
+   cd ai-dev
+   ```
+
+2. **Initialize Your Project with Claude Code**
+   ```bash
+   # Create your project directory
+   mkdir my-awesome-project
+   cd my-awesome-project
+   
+   # Start Claude Code and run the setup
+   claude-code
+   ```
+   
+   In Claude Code, run:
+   ```
+   Read the complete_ai_dev_process.md file from the cloned repository to understand the complete AI development process structure. Familiarize yourself with .claude code and inspect all contract files to be respected, the prompt templates to be used, and the validation checklists to be run after each phase. Once you are ready, ask the user to provide a rough idea of the application they want to build.
+   ```
+
+3. **Verify Setup**
+   ```bash
+   # Run the verification script to make sure all components are correctly set up
+   chmod +x verify_setup.sh
+   ./verify_setup.sh
+   ```
+
+4. **Start Your First Project**
+   ```bash
+   # Initialize the AI development session
+   claude-code
+   ```
+   
+   In Claude Code:
+   ```
+   Load the session-init prompt and begin the AI development process based on the application idea the user provided. Ask the user for any additional information needed at each phase and guide them through the process.
+   ```
 
 ---
 
